@@ -19,7 +19,7 @@ router.post('/get', (req, res) => {
             events.items.forEach(event => {
                 var createdAt = dateToString(new Date(event.createdAt));
                 if((event.type === 'PushEvent') && createdAt === today){
-                    num += 1;
+                    num += event.payload.commits.length;
                 }
             });
 
@@ -27,22 +27,6 @@ router.post('/get', (req, res) => {
                 nCommits: num,
             })
         });
-})
-
-router.post('/login', (req, res) => {
-    console.log("login reqeust has come...!");
-    const { username, password } = req.body;
-    console.log(username, password);
-
-    if(username == "kimsoyeong"){
-        res.status(200).json({
-            message: "로그인 성공"
-        })
-    } else {
-        res.status(403).json({
-            message: "로그인 실패"
-        })
-    }
 })
 
 module.exports = router;
