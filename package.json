@@ -11,6 +11,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "firebase-admin": "^10.0.2",
+    "node-cron": "^3.0.0",
     "octokat": "^0.10.0"
   }
 }
